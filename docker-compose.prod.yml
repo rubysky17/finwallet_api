@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  finwallet-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: finwallet-server
+    restart: always
+    env_file:
+      - .env
+      - .env.production
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    ports:
+      - '${APP_PORT}:${APP_PORT}'
+    networks:
+      - finwallet_net
+
+networks:
+  finwallet_net:
+    name: finwallet_net

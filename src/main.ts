@@ -12,6 +12,7 @@ import { ConfigKeyPaths, IAppConfig } from './config';
 
 // ! Global
 import { isDev } from './global/env';
+import setupSwagger from './setup-swagger';
 
 declare const module: any
 
@@ -39,6 +40,9 @@ async function bootstrap() {
     // ! Enable Logging
     const appLogger = app.get(LoggerService);
     app.useGlobalFilters(new AllExceptionsFilter(appLogger));
+
+
+    setupSwagger(app, configService)
 
     // ! Global validation pipe
     app.useGlobalPipes(

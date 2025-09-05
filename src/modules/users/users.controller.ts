@@ -22,8 +22,13 @@ import { UserRole } from './user.entity';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { Public } from '~/modules/auth/decorators/public.decorator';
 import { Token } from '~/modules/auth/decorators/user.decorator';
+// ! Decorators
+import { ApiSecurityAuth } from '~/common/decorators/swagger.decorator';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('users')
+@ApiTags('User Management')
+@ApiSecurityAuth()
 @UseGuards(JwtAuthGuard, RolesGuard)
 export class UsersController {
     constructor(
@@ -52,7 +57,7 @@ export class UsersController {
     }
 
     @Get()
-    @Roles(UserRole.ADMIN, UserRole.MODERATOR)
+    // @Roles(UserRole.ADMIN, UserRole.MODERATOR)
     async findAll() {
         const users = await this.usersService.findAll();
         return {

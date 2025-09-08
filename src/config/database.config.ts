@@ -7,6 +7,7 @@ export const dbRegToken = 'database'
 const currentScript = process.env.npm_lifecycle_event
 
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
+const isProd = process.env.NODE_ENV === 'production'
 const dataSourceOptions: DataSourceOptions = {
     type: 'mysql',
     host: env('DB_HOST', '127.0.0.1'),
@@ -17,11 +18,11 @@ const dataSourceOptions: DataSourceOptions = {
     synchronize: envBoolean('DB_SYNCHRONIZE', false),
     multipleStatements: currentScript === 'typeorm',
     entities: [
-        // 'modules/**/*.entity.{ts}',
-        'dist/modules/**/*.entity.{ts,js}'
+        `dist/modules/**/*.entity.{${isProd ? 'js' : 'ts,js'}}`
     ],
     migrations: ['dist/migrations/*.{ts,js}'],
     subscribers: ['dist/modules/**/*.subscriber.{ts,js}'],
+    logging: true
 }
 
 export const DatabaseConfig = registerAs(

@@ -19,6 +19,7 @@ import { UserWalletModule } from './modules/userWallet/userWallet.module';
 
 // ! Middlewares
 import { LoggerMiddleware } from './common/middleware/logger.middleware';
+import { TransactionModule } from './modules/transaction/transaction.module';
 
 @Module({
   imports: [
@@ -50,6 +51,7 @@ import { LoggerMiddleware } from './common/middleware/logger.middleware';
     CategoryTemplateModule,
     WalletModule,
     UserWalletModule,
+    TransactionModule
   ]
 })
 export class AppModule implements NestModule {

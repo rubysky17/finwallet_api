@@ -36,6 +36,7 @@ export class UsersController {
     ) { }
 
     @Post()
+    @Roles(UserRole.ADMIN)
     @HttpCode(HttpStatus.CREATED)
     async create(@Body() createUserDto: CreateUserDto) {
         const user = await this.usersService.create(createUserDto);
@@ -45,8 +46,8 @@ export class UsersController {
         };
     }
 
+    @Roles(UserRole.ADMIN, UserRole.MODERATOR)
     @Get()
-    // @Roles(UserRole.ADMIN, UserRole.MODERATOR)
     async findAll() {
         const users = await this.usersService.findAll();
         return {
@@ -64,9 +65,8 @@ export class UsersController {
         };
     }
 
-    @Public()
     @Get(':id')
-    // @Roles(UserRole.ADMIN, UserRole.MODERATOR)
+    @Roles(UserRole.ADMIN, UserRole.MODERATOR)
     async findOne(@Param('id') id: number) {
         const user = await this.usersService.findById(id);
         return {

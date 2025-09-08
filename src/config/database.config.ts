@@ -22,7 +22,6 @@ const dataSourceOptions: DataSourceOptions = {
     ],
     migrations: ['dist/migrations/*.{ts,js}'],
     subscribers: ['dist/modules/**/*.subscriber.{ts,js}'],
-    logging: true
 }
 
 export const DatabaseConfig = registerAs(

@@ -5,7 +5,7 @@ import { CategoryTemplateService } from "./categoryTemplate.service";
 import { UpdateCategoryTemplateDto } from "./dto/update-categoryTemplate.dto";
 
 @ApiTags('Mẫu danh sách danh mục')
-@Controller("categoryTemplate")
+@Controller("category-template")
 export class CategoryTemplateController {
     constructor(
         private readonly categoryTemplateService: CategoryTemplateService

@@ -11,7 +11,7 @@ import { User } from '../users/user.entity';
 import { Category, CategoryType } from '../categories/category.entity';
 import { Exclude } from 'class-transformer';
 
-@Entity('categoryTemplate')
+@Entity('category_template')
 export class CategoryTemplate {
     @PrimaryGeneratedColumn()
     id: number;
@@ -28,6 +28,9 @@ export class CategoryTemplate {
 
     @Column({ name: 'parent_id', nullable: true, default: null })
     parentId?: number | null;
+
+    @Column({ nullable: false })
+    rootId?: number;
 
     @ManyToOne(() => Category, (category) => category.children, {
         nullable: true,

@@ -19,8 +19,7 @@ export class CategoryTemplateService {
 
     async getAll() {
         return await this.categoryTemplateRepository.find({
-            select: ['id', "user", "userId", "name", "type"],
-            relations: ['children', 'children.children'],
+            select: ['id', "user", "userId", "name", "type", 'parentId', 'rootId', 'isActive']
         });
     }
 
@@ -37,6 +36,7 @@ export class CategoryTemplateService {
                     name: category.name,
                     type: category.type,
                     parentId: category.parentId,
+                    rootId: category.id,
                     userId,
                     isActive: true
                 }

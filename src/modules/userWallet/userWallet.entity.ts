@@ -1,15 +1,18 @@
 import { User } from '~/modules/users/user.entity';
 import { Wallet } from '~/modules/wallets/wallet.entity';
-import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn, ManyToMany } from 'typeorm';
+import { Exclude } from 'class-transformer';
 
 @Entity('user_wallet')
 export class UserWallet {
+    @Exclude()
     @PrimaryColumn({
         name: "user_id",
         type: 'int'
     })
     userId: number;
 
+    @Exclude()
     @PrimaryColumn({
         name: "wallet_id",
         type: 'int'
@@ -21,7 +24,7 @@ export class UserWallet {
 
     @ManyToOne(() => User, (user) => user.userWallets)
     @JoinColumn({ name: 'user_id' })
-    user: User[];
+    user: User;
 
     @ManyToOne(() => Wallet, (wallet) => wallet.userWallets)
     @JoinColumn({ name: 'wallet_id' })

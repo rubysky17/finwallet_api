@@ -1,8 +1,9 @@
 FROM oven/bun:1 AS base
 
 ARG PROJECT_DIR
+ARG NODE_ENV
 
-ENV DB_HOST=mysql \
+ENV DB_HOST_DOCKER=mysql \
     APP_PORT=7001
 
 WORKDIR $PROJECT_DIR
@@ -35,4 +36,4 @@ COPY ecosystem.config.js ecosystem.config.js
 EXPOSE  $APP_PORT
 
 # Start container với wait-for-it + migration + pm2 cluster
-ENTRYPOINT ./wait-for-it.sh $DB_HOST:$DB_PORT -- bun run migration:run && bun run start:prod
+ENTRYPOINT ./wait-for-it.sh $DB_HOST_DOCKER:$DB_PORT_DOCKER -- bun run start:production

@@ -27,7 +27,7 @@ import { ApiSecurityAuth } from '~/common/decorators/swagger.decorator';
 import { ApiTags } from '@nestjs/swagger';
 
 @Controller('users')
-@ApiTags('User Management')
+@ApiTags('Quản lý người dùng')
 @ApiSecurityAuth()
 @UseGuards(JwtAuthGuard, RolesGuard)
 export class UsersController {
@@ -38,17 +38,6 @@ export class UsersController {
     @Post()
     @HttpCode(HttpStatus.CREATED)
     async create(@Body() createUserDto: CreateUserDto) {
-        const user = await this.usersService.create(createUserDto);
-        return {
-            message: 'User created successfully',
-            data: user,
-        };
-    }
-
-    @Public()
-    @Post("/demo")
-    @HttpCode(HttpStatus.CREATED)
-    async createDemo(@Body() createUserDto: CreateUserDto) {
         const user = await this.usersService.create(createUserDto);
         return {
             message: 'User created successfully',

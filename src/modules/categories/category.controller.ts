@@ -10,6 +10,7 @@ import {
     Put,
     UseGuards
 } from "@nestjs/common";
+import { ApiTags } from "@nestjs/swagger";
 
 // DTOs
 import { UpdateCategoryDto, CreateCategoryDto } from "./dto";
@@ -18,10 +19,13 @@ import { CategoryService } from "./category.service";
 // Guards
 import { JwtAuthGuard } from "~/modules/auth/guards/jwt-auth.guard";
 import { RolesGuard } from "~/modules/auth/guards/roles.guard";
-import { UserRole } from "~/modules/users/user.entity";
+// Decorators
 import { Roles } from "~/modules/auth/decorators/roles.decorator";
 import { Public } from "~/modules/auth/decorators/public.decorator";
+// Entities
+import { UserRole } from "~/modules/users/user.entity";
 
+@ApiTags("Danh mục")
 @Controller("categories")
 @UseGuards(JwtAuthGuard, RolesGuard)
 export class CategoryController {

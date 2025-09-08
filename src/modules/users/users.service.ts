@@ -12,7 +12,7 @@ import { WalletType } from '~/modules/wallets/wallet.entity';
 // ! Services
 import { WalletService } from '~/modules/wallets/wallet.service';
 import { UserWalletService } from '~/modules/userWallet/userWallet.service';
-import { CategoryTemplateService } from '~/modules/categoryTemplate/category-template.service';
+import { CategoryTemplateService } from '~/modules/categoryTemplate/categoryTemplate.service';
 
 @Injectable()
 export class UsersService {

@@ -11,7 +11,7 @@ import { User } from '../users/user.entity';
 import { Category, CategoryType } from '../categories/category.entity';
 import { Exclude } from 'class-transformer';
 
-@Entity('category_template')
+@Entity('categoryTemplate')
 export class CategoryTemplate {
     @PrimaryGeneratedColumn()
     id: number;
@@ -43,9 +43,7 @@ export class CategoryTemplate {
     @Exclude()
     userId: number | string;
 
-    @ManyToOne(() => User, (user) => user.categoryTemplates, {
-        onDelete: 'CASCADE',
-    })
+    @ManyToOne(() => User, user => user.categoryTemplates)
     @JoinColumn({ name: 'user_id' })
     user: User;
 

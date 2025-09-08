@@ -2,7 +2,7 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { User } from '../users/user.entity';
 import { CreateUserDto } from '../users/dto';
 
-import { CategoryTemplateService } from '~/modules/categoryTemplate/category-template.service';
+import { CategoryTemplateService } from '~/modules/categoryTemplate/categoryTemplate.service';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 

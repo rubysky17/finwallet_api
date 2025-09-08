@@ -9,7 +9,9 @@ import {
 // import { JwtAuthGuard } from "src/auth/guards/jwt-auth.guard";
 import { WalletService } from "./wallet.service";
 import { CreateWalletDto } from "./dto";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags('Quản lý ví')
 @Controller("wallets")
 // @UseGuards(JwtAuthGuard)
 export class WalletController {

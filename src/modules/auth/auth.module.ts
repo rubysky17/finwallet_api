@@ -7,7 +7,7 @@ import { AuthController } from './auth.controller';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
 import { UsersModule } from '../users/users.module';
-import { CategoryTemplateModule } from '~/modules/categoryTemplate/category-template.module';
+import { CategoryTemplateModule } from '~/modules/categoryTemplate/categoryTemplate.module';
 
 @Module({
     imports: [

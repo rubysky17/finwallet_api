@@ -13,7 +13,7 @@ import { UsersModule } from './modules/users/users.module';
 import { HealthModule } from './modules/health/health.module';
 import { WalletModule } from './modules/wallets/wallet.module';
 import { CategoryModule } from './modules/categories/category.module';
-import { CategoryTemplateModule } from './modules/categoryTemplate/category-template.module';
+import { CategoryTemplateModule } from './modules/categoryTemplate/categoryTemplate.module';
 import { UserWalletModule } from './modules/userWallet/userWallet.module';
 
 
@@ -41,8 +41,8 @@ import { LoggerMiddleware } from './common/middleware/logger.middleware';
         // },
       },
     }),
-    HealthModule,
     SharedModule,
+    HealthModule,
     DatabaseModule,
     AuthModule,
     UsersModule,

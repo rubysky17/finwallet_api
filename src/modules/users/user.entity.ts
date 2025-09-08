@@ -12,7 +12,7 @@ import {
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
 import * as bcrypt from 'bcrypt';
-import { CategoryTemplate } from '~/modules/categoryTemplate/category-template.entity';
+import { CategoryTemplate } from '~/modules/categoryTemplate/categoryTemplate.entity';
 import { Wallet } from '~/modules/wallets/wallet.entity';
 import { UserWallet } from '~/modules/userWallet/userWallet.entity';
 

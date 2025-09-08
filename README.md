@@ -56,10 +56,10 @@ src/
 │   └── category.module.ts # Category module configuration
 ├── categoryTemplate/      # Category template module
 │   ├── dto/              # Template DTOs
-│   ├── category-template.entity.ts # Template database model
-│   ├── category-template.controller.ts # Template endpoints
-│   ├── category-template.service.ts # Template business logic
-│   └── category-template.module.ts # Template module configuration
+│   ├── categoryTemplate.entity.ts # Template database model
+│   ├── categoryTemplate.controller.ts # Template endpoints
+│   ├── categoryTemplate.service.ts # Template business logic
+│   └── categoryTemplate.module.ts # Template module configuration
 ├── common/               # Shared utilities and configurations
 │   ├── filters/         # Exception filters
 │   ├── logging/         # Logging configuration
@@ -263,13 +263,13 @@ Authorization: Bearer <jwt_token>
 
 #### Get User Templates
 ```http
-GET /category-templates
+GET /categoryTemplates
 Authorization: Bearer <jwt_token>
 ```
 
 #### Create Template
 ```http
-POST /category-templates
+POST /categoryTemplates
 Authorization: Bearer <jwt_token>
 Content-Type: application/json
 

@@ -1,0 +1,76 @@
+services:
+  # ! Chưa sử dụng
+  # nest-admin-web:
+    # image: buqiyuan/vue3-antdv-admin:stable
+    #container_name: nest-admin-web
+    #volumes:
+      #- ./deploy/web:/etc/nginx/conf.d
+    #ports:
+      #- '80:80'
+    #restart: always
+    #networks:
+      #- finwallet_net
+  mysql:
+    image: mysql:latest
+    container_name: finwallet-db
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - MYSQL_DATABASE=${DB_DATABASE}
+      - MYSQL_USER=${DB_USERNAME}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+    ports:
+      - '${DB_PORT}:3306'
+      # đảm bảo DB dùng UTF-8 đầy đủ, không bị lỗi ký tự khi lưu emoji/tiếng Việt.
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci 
+    volumes:
+      - ./__data/mysql/:/var/lib/mysql/
+      - ./deploy/sql/:/docker-entrypoint-initdb.d/ 
+    networks:
+      - finwallet_net
+
+  # ! Chưa sử dụng
+  #redis:
+    #image: redis:alpine
+    #container_name: nest-admin-redis
+    #restart: always
+    #env_file:
+    #  - .env
+    #  - .env.production
+    #ports:
+    #  - '${REDIS_PORT}:6379'
+    #command: >
+    #  --requirepass ${REDIS_PASSWORD}
+   # networks:
+    #  - finwallet_net
+
+  finwallet-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PROJECT_DIR=${PROJECT_DIR}
+    container_name: finwallet-server
+    restart: always
+    env_file:
+      - .env.development
+    environment:
+      DB_HOST: mysql 
+      DB_PORT: 3306
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+    ports:
+      - '${APP_PORT}:${APP_PORT}'
+    volumes:
+      - ./logs/:${PROJECT_DIR}/logs/
+    depends_on:
+      - mysql
+      # - redis
+    networks:
+      - finwallet_net
+
+networks:
+  finwallet_net:
+    name: finwallet_net

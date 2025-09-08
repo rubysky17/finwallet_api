@@ -5,7 +5,7 @@ import { UsersController } from './users.controller';
 import { User } from './user.entity';
 import { WalletModule } from '~/modules/wallets/wallet.module';
 import { UserWalletModule } from '~/modules/userWallet/userWallet.module';
-import { CategoryTemplateModule } from '~/modules/categoryTemplate/category-template.module';
+import { CategoryTemplateModule } from '~/modules/categoryTemplate/categoryTemplate.module';
 
 @Module({
   imports: [

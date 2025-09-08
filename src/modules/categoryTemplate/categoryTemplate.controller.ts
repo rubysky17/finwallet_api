@@ -1,8 +1,11 @@
 import { Body, Controller, Get, Put } from "@nestjs/common";
-import { CategoryTemplateService } from "./category-template.service";
+import { ApiTags } from "@nestjs/swagger";
+
+import { CategoryTemplateService } from "./categoryTemplate.service";
 import { UpdateCategoryTemplateDto } from "./dto/update-categoryTemplate.dto";
 
-@Controller("category-template")
+@ApiTags('Mẫu danh sách danh mục')
+@Controller("categoryTemplate")
 export class CategoryTemplateController {
     constructor(
         private readonly categoryTemplateService: CategoryTemplateService

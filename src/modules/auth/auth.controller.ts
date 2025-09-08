@@ -7,12 +7,24 @@ import {
     HttpCode,
     HttpStatus,
 } from '@nestjs/common';
+import { ApiExtraModels, ApiTags } from '@nestjs/swagger';
+
+// ! Services
 import { AuthService } from './auth.service';
-import { LoginDto, RefreshTokenDto } from './dto';
+
+// ! DTOs
+import { LoginDto } from './dto';
 import { CreateUserDto } from '../users/dto';
+
+// ! Guards
 import { LocalAuthGuard } from './guards/local-auth.guard';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 
+// ! Entities
+import { User } from '../users/user.entity';
+
+@ApiTags("Xác thực người dùng")
+@ApiExtraModels(User)
 @Controller('auth')
 export class AuthController {
     constructor(private readonly authService: AuthService) { }

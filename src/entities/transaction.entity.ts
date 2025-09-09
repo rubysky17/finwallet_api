@@ -7,9 +7,6 @@ import {
 } from "typeorm";
 import { Column, PrimaryGeneratedColumn } from "typeorm";
 
-// ! Entities
-import { User } from "../users/user.entity";
-
 @Entity("transactions")
 export class Transaction {
     @PrimaryGeneratedColumn()
@@ -31,7 +28,7 @@ export class Transaction {
     createdAt: Date;
 
     @Column({ type: "int" })
-    user_id: User;
+    user_id: number;
 
     @UpdateDateColumn()
     updatedAt: Date;

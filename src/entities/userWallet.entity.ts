@@ -1,8 +1,9 @@
-import { User } from '~/modules/users/user.entity';
-import { Wallet } from '~/modules/wallets/wallet.entity';
-import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn, ManyToMany } from 'typeorm';
+import { User } from '~/entities/user.entity';
+import { Wallet } from '~/entities/wallet.entity';
+import { Entity, PrimaryColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { Exclude } from 'class-transformer';
-import type { User as UserType } from '~/modules/users/user.entity';
+
+import type { User as UserType } from '~/entities';
 
 @Entity('user_wallet')
 export class UserWallet {

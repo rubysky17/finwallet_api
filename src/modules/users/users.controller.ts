@@ -17,10 +17,9 @@ import { CreateUserDto, UpdateUserDto } from './dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 // ! Entities
-import { UserRole } from './user.entity';
+import { UserRole } from '../../entities/user.entity';
 // ! Decorators
 import { Roles } from '../auth/decorators/roles.decorator';
-import { Public } from '~/modules/auth/decorators/public.decorator';
 import { Token } from '~/modules/auth/decorators/user.decorator';
 // ! Decorators
 import { ApiSecurityAuth } from '~/common/decorators/swagger.decorator';

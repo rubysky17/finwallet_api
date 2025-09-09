@@ -3,7 +3,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { IsNull, Repository } from "typeorm";
 
 // Entities
-import { Category } from "./category.entity";
+import { Category } from "~/entities";
 
 // DTOs
 import { CreateCategoryDto, UpdateCategoryDto } from "./dto";

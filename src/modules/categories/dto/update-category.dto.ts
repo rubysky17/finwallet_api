@@ -1,5 +1,5 @@
 import { IsEnum, IsOptional, IsString, IsNumber, IsNotEmpty, IsBoolean } from 'class-validator';
-import { CategoryType } from '../category.entity';
+import { CategoryType } from '../../../entities/category.entity';
 
 export class UpdateCategoryDto {
     @IsString()

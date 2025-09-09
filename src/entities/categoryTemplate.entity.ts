@@ -7,9 +7,10 @@ import {
     CreateDateColumn,
     UpdateDateColumn,
 } from 'typeorm';
-import { User } from '../users/user.entity';
-import { Category, CategoryType } from '../categories/category.entity';
 import { Exclude } from 'class-transformer';
+
+import { CategoryType, Category, User } from '.';
+import type { User as UserType } from './user.entity';
 
 @Entity('category_template')
 export class CategoryTemplate {
@@ -48,7 +49,7 @@ export class CategoryTemplate {
 
     @ManyToOne(() => User, user => user.categoryTemplates)
     @JoinColumn({ name: 'user_id' })
-    user: User;
+    user: UserType;
 
     @CreateDateColumn()
     createdAt: Date;

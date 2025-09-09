@@ -23,7 +23,7 @@ import { RolesGuard } from "~/modules/auth/guards/roles.guard";
 import { Roles } from "~/modules/auth/decorators/roles.decorator";
 import { Public } from "~/modules/auth/decorators/public.decorator";
 // Entities
-import { UserRole } from "~/modules/users/user.entity";
+import { UserRole } from "~/entities/user.entity";
 
 @ApiTags("Danh mục")
 @Controller("categories")

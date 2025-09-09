@@ -25,7 +25,7 @@ export class UserWallet {
 
     @ManyToOne(() => User, (user) => user.userWallets)
     @JoinColumn({ name: 'user_id' })
-    user: any;
+    user: UserType;
 
     @ManyToOne(() => Wallet, (wallet) => wallet.userWallets)
     @JoinColumn({ name: 'wallet_id' })

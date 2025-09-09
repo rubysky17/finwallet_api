@@ -7,13 +7,11 @@ import {
     BeforeInsert,
     BeforeUpdate,
     OneToMany,
-    ManyToMany,
-    JoinTable,
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
 import * as bcrypt from 'bcrypt';
-import { CategoryTemplate } from '~/modules/categoryTemplate/categoryTemplate.entity';
-import { UserWallet } from '~/modules/userWallet/userWallet.entity';
+
+import { CategoryTemplate, UserWallet } from '.';
 
 export enum UserRole {
     USER = 'user',

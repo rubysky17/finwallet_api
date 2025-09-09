@@ -1,8 +1,10 @@
 import { Injectable } from "@nestjs/common";
-import { CreateUserWalletDto } from "./dto/create-userWallet.dto";
 import { InjectRepository } from "@nestjs/typeorm";
-import { UserWallet } from "./userWallet.entity";
 import { Repository } from "typeorm";
+
+import { UserWallet } from "~/entities";
+
+import { CreateUserWalletDto } from "./dto/create-userWallet.dto";
 
 @Injectable()
 export class UserWalletService {

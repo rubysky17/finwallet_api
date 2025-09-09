@@ -1,9 +1,10 @@
 import { ConflictException, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Transaction } from "./transaction.entity";
 import { Repository } from "typeorm";
 import { CreateTransactionDto } from "./dto/transaction.dto";
 import { UsersService } from "../users/users.service";
+
+import { Transaction } from "~/entities";
 
 @Injectable()
 export class TransactionService {

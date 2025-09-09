@@ -3,11 +3,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 // ! Entities
-import { User, UserRole, UserStatus } from './user.entity';
+import { User, UserRole, UserStatus, WalletType } from '~/entities';
 
 // ! DTOs & Entity
 import { CreateUserDto, UpdateUserDto } from './dto';
-import { WalletType } from '~/modules/wallets/wallet.entity';
 
 // ! Services
 import { WalletService } from '~/modules/wallets/wallet.service';

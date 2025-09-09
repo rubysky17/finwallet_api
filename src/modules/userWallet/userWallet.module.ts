@@ -1,7 +1,8 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { UserWallet } from "./userWallet.entity";
 import { UserWalletService } from "./userWallet.service";
+
+import { UserWallet } from "~/entities";
 
 @Module({
     imports: [

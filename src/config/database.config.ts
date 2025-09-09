@@ -18,7 +18,7 @@ const dataSourceOptions: DataSourceOptions = {
     synchronize: envBoolean('DB_SYNCHRONIZE', false),
     multipleStatements: currentScript === 'typeorm',
     entities: [
-        `dist/modules/**/*.entity.{${isProd ? 'js' : 'ts,js'}}`
+        `dist/entities/index.{${isProd ? 'js' : 'ts,js'}}`
     ],
     migrations: ['dist/migrations/*.{ts,js}'],
     subscribers: ['dist/modules/**/*.subscriber.{ts,js}'],

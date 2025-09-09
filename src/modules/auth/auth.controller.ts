@@ -21,7 +21,7 @@ import { LocalAuthGuard } from './guards/local-auth.guard';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 
 // ! Entities
-import { User } from '../users/user.entity';
+import { User } from '../../entities/user.entity';
 
 @ApiTags("Xác thực người dùng")
 @ApiExtraModels(User)

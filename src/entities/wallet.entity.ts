@@ -6,8 +6,8 @@ import {
     UpdateDateColumn,
     OneToMany,
 } from "typeorm";
-import { CategoryTemplate } from "../categoryTemplate/categoryTemplate.entity";
-import { UserWallet } from "../userWallet/userWallet.entity";
+
+import { CategoryTemplate, UserWallet } from ".";
 
 export enum WalletType {
     BASIC = "basic",

@@ -1,5 +1,5 @@
 import { IsEmail, IsString, IsOptional, MinLength, MaxLength, IsEnum } from 'class-validator';
-import { UserStatus } from '../user.entity';
+import { UserStatus } from '../../../entities/user.entity';
 
 export class UpdateUserDto {
     @IsOptional()

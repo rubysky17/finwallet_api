@@ -63,8 +63,10 @@ export class UsersService {
                 'role',
                 'status',
                 'avatar',
-                'createdAt'
+                'createdAt',
+                'categoryTemplates',
             ],
+            relations: ['categoryTemplates'],
         });
     }
 
@@ -93,11 +95,11 @@ export class UsersService {
             throw new NotFoundException('User not found');
         }
 
-        const getWallet = await this.userWalletService.getWalletWithUsers(id)
+        const walletList = await this.userWalletService.getWalletByUserId(id)
 
         return {
             ...user,
-            wallet: getWallet
+            walletList
         };
     }
 

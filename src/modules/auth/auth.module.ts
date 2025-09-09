@@ -7,23 +7,23 @@ import { AuthController } from './auth.controller';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
 import { UsersModule } from '../users/users.module';
-import { CategoryTemplateModule } from '~/modules/categoryTemplate/categoryTemplate.module';
+import { CategoryTemplateModule } from "../categoryTemplate/categoryTemplate.module";
 
 @Module({
     imports: [
         UsersModule,
         PassportModule,
+        CategoryTemplateModule,
         JwtModule.registerAsync({
             imports: [ConfigModule],
             useFactory: async (configService: ConfigService) => ({
                 secret: configService.get<string>('JWT_SECRET'),
                 signOptions: {
-                    expiresIn: configService.get<string>('JWT_EXPIRE', '3600s'),
+                    expiresIn: configService.get<string>('JWT_EXPIRE', '86400s'),
                 },
             }),
             inject: [ConfigService],
-        }),
-        CategoryTemplateModule
+        })
     ],
     controllers: [AuthController],
     providers: [AuthService, JwtStrategy, LocalStrategy],

@@ -25,6 +25,15 @@ export class UserWalletService {
         return walletWithUsers?.wallet || null
     }
 
+    async getWalletByUserId(userId: number) {
+        const walletWithUsers = await this.userWalletRepository.find({
+            where: { userId },
+            relations: ['wallet'],
+        });
+
+        return walletWithUsers.map((uw) => uw.wallet);
+    }
+
     async getUsersWithWallet(walletId: number) {
         const usersWithWallet = await this.userWalletRepository.findOne({
             where: { walletId },

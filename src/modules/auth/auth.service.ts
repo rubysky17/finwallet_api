@@ -2,8 +2,8 @@ import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { User } from '../users/user.entity';
 import { CreateUserDto } from '../users/dto';
 
-import { CategoryTemplateService } from '~/modules/categoryTemplate/categoryTemplate.service';
 import { UsersService } from '../users/users.service';
+import { CategoryTemplateService } from '../categoryTemplate/categoryTemplate.service';
 import { JwtService } from '@nestjs/jwt';
 
 export interface JwtPayload {
@@ -22,8 +22,8 @@ export interface LoginResponse {
 export class AuthService {
     constructor(
         private readonly usersService: UsersService,
-        private readonly jwtService: JwtService,
-        private readonly categoryTemplate: CategoryTemplateService
+        private readonly categoryTemplate: CategoryTemplateService,
+        private readonly jwtService: JwtService
     ) { }
 
     async validateUser(email: string, password: string): Promise<User> {

@@ -13,8 +13,8 @@ import { CategoryModule } from "~/modules/categories/category.module";
         TypeOrmModule.forFeature([CategoryTemplate]),
         CategoryModule,
     ],
-    providers: [CategoryTemplateService],
     controllers: [CategoryTemplateController],
+    providers: [CategoryTemplateService],
     exports: [CategoryTemplateService],
 })
 export class CategoryTemplateModule { }

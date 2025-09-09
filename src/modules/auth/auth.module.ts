@@ -13,6 +13,7 @@ import { CategoryTemplateModule } from "../categoryTemplate/categoryTemplate.mod
     imports: [
         UsersModule,
         PassportModule,
+        CategoryTemplateModule,
         JwtModule.registerAsync({
             imports: [ConfigModule],
             useFactory: async (configService: ConfigService) => ({
@@ -22,8 +23,7 @@ import { CategoryTemplateModule } from "../categoryTemplate/categoryTemplate.mod
                 },
             }),
             inject: [ConfigService],
-        }),
-        CategoryTemplateModule
+        })
     ],
     controllers: [AuthController],
     providers: [AuthService, JwtStrategy, LocalStrategy],
